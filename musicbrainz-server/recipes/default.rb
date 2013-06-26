@@ -18,6 +18,7 @@ end
 cookbook_file "/home/musicbrainz/musicbrainz-server/lib/DBDefs.pm" do
   source "DBDefs.pm"
   owner "musicbrainz"
+  mode "644"
 end
 
 apt_repository "musicbrainz" do

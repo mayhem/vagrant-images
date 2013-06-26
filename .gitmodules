@@ -25,3 +25,6 @@
 [submodule "cabal"]
 	path = cabal
 	url = https://github.com/apiengine/chef-cabal.git
+[submodule "redis"]
+	path = redis
+	url = https://github.com/ctrabold/chef-redis.git
