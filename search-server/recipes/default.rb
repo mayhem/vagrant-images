@@ -6,6 +6,22 @@ user "search" do
 end
 
 package "openjdk-7-jre"
+package "mvn"
+package "subversion"
+
+subversion "MMD Schema" do
+  repository "http://svn.musicbrainz.org/mmd-schema/trunk"
+  revision "13700"
+  destination "/home/search/mmd-schema"
+  action :sync
+end
+
+subversion "Search Server" do
+  repository "http://svn.musicbrainz.org/mmd-schema/trunk"
+  revision "13700"
+  destination "/home/search/search-server"
+  action :sync
+end
 
 directory "/home/search/data" do
   owner "search"
@@ -49,12 +65,11 @@ directory "/home/search/bin" do
   action :create
 end
 
-# TODO: Change to download this from our site or build it in place
-cookbook_file "/home/search/jar/index.jar" do
-  source "index.jar"
-  group "search"
-  owner "search"
-  mode "0644"
+#cookbook_file "/home/search/jar/index.jar" do
+#  source "index.jar"
+# group "search"
+# owner "search"
+# mode "0644"
 end
 
 cookbook_file "/home/search/bin/reindex" do
